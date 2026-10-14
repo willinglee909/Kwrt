@@ -84,3 +84,9 @@ sed -i "s/OpenWrt/Kwrt/g" package/base-files/files/bin/config_generate package/b
 sed -i -e "s/set \${s}.country='\${country || ''}'/set \${s}.country='\${country || \"CN\"}'/g" -e "s/set \${s}.disabled=.*/set \${s}.disabled='0'/" package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc
 
 rm -rf package/feeds/packages/jool
+echo "src-git homeproxy https://github.com/luckfly/homeproxy.git" >> feeds.conf.default
+echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main" >> feeds.conf.default
+echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> feeds.conf.default
+
+./scripts/feeds update -a
+./scripts/feeds install -a
