@@ -30,12 +30,11 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    name: Build ${{matrix.target}}
+    name: Build ${{ matrix.target }}
     strategy:
       fail-fast: false
       matrix:
-        target: ["${{ github.event.client_payload.target }}"]
+        target: ["${{ github.event.inputs.target || github.event.client_payload.target }}"]
         
     steps:
     - name: Checkout
