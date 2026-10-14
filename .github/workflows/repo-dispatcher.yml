@@ -20,7 +20,9 @@ on:
         description: 'parameter'
         required: false
         default: ''
-
+permissions:
+  contents: write
+  actions: write
 env:
   TOKEN_KIDDIN9: ${{ secrets.TOKEN_KIDDIN9 }}
   TZ: Asia/Shanghai
